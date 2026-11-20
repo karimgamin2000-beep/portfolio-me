@@ -167,15 +167,26 @@ $(document).ready(function () {
         message: message,
         _subject: "Nouveau message depuis le portfolio KAK",
         _replyto: email,
+        _captcha: "false",
       }),
     })
       .then(function (response) {
-        if (!response.ok) {
-          throw new Error("HTTP " + response.status);
-        }
-        return response.json();
+        return response.json().then(function (data) {
+          return { ok: response.ok, data: data };
+        });
       })
-      .then(function () {
+      .then(function (res) {
+        if (!res.ok || res.data.success === "false" || res.data.success === false) {
+          const msg = (res.data && res.data.message) || "";
+          if (msg.toLowerCase().includes("activation")) {
+            $feedback
+              .addClass("bg-red-950/70 text-red-300 border border-red-800")
+              .text("Formulaire en attente d'activation : ouvrez karimgamin2000@gmail.com (et les spams) et cliquez sur « Activate Form » dans l'e-mail de FormSubmit.")
+              .fadeIn(200);
+            return;
+          }
+          throw new Error(msg || "Erreur d'envoi");
+        }
         $feedback
           .addClass("bg-emerald-950/70 text-emerald-300 border border-emerald-800")
           .text("Merci " + nom + " ! Votre message a bien été envoyé à karimgamin2000@gmail.com.")
