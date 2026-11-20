@@ -21,7 +21,7 @@ Portfolio personnel minimaliste et responsive présentant mon parcours en **Comp
 | Projet | Description | Stack | Lien |
 | --- | --- | --- | --- |
 | **Web-Linux** | OS Linux dans le navigateur (bureau Ubuntu, 7 apps, terminal `lwsh`, VFS persistant) | HTML5, CSS3, Vanilla JS | [Démo live](https://linux-web-app.vercel.app) |
-| **BiblioIIT** | Application console modulaire de gestion de bibliothèque avec détection des retards | Python 3, SQLite, `unittest` | [GitHub](https://github.com/karimgamin2000-beep) |
+| **BiblioIIT** | Application console modulaire de gestion de bibliothèque avec détection des retards | Python 3, SQLite, `unittest` | [GitHub](https://github.com/karimgamin2000-beep/biblio-iit) |
 | **SondagesIIT** | Site public de sondages et de votes avec interface d'administration | Python, Django 6.1, SQLite | [GitHub](https://github.com/karimgamin2000-beep) |
 | **Portfolio Monopage** | Ce site vitrine minimaliste avec CV PDF et formulaire de contact | HTML5, Tailwind CSS, jQuery | [Site](https://karimgamin2000-beep.github.io/portfolio-me/) |
 
