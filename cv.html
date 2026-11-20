@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — KONATE ABDOUL KARIM | Computer Science &amp; Spécialiste IA</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      background-color: #e2e8f0;
+      color: #0f172a;
+      font-size: 1rem;
+    }
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 0.9rem; }
+    h3 { font-size: 0.95rem; }
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        background-color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .cv-sheet {
+        box-shadow: none !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-6">
+
+  <!-- Barre d'actions en haut -->
+  <div class="no-print max-w-[900px] mx-auto mb-5 flex flex-wrap items-center justify-between gap-3">
+    <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-slate-800 text-sm font-medium shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors">
+      <span aria-hidden="true">←</span>
+      <span>Retour au portfolio</span>
+    </a>
+
+    <a href="assets/cv-karim.pdf" download="CV-KONATE-ABDOUL-KARIM.pdf" data-download-cv class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#0284c7] text-white text-sm font-semibold shadow-sm hover:bg-[#0369a1] transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+      <span>Télécharger en PDF</span>
+    </a>
+  </div>
+
+  <!-- Feuille CV A4 2 colonnes -->
+  <main class="cv-sheet max-w-[900px] mx-auto bg-white shadow-xl grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+
+    <!-- Colonne gauche sombre -->
+    <aside class="md:col-span-4 bg-[#0b1426] text-slate-200 p-6 sm:p-7 space-y-7">
+      <!-- Photo circulaire -->
+      <div class="flex justify-center">
+        <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-[#38bdf8] bg-white shadow-md">
+          <img
+            src="assets/karim-pro.jpg"
+            alt="Photo de KONATE ABDOUL KARIM"
+            class="w-full h-full object-cover object-top"
+          >
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-[#38bdf8] pb-2 border-b border-slate-700/80 mb-3">
+          Contact
+        </h2>
+        <ul class="space-y-2 text-xs text-slate-300 break-words">
+          <li>Grand-Bassam, Côte d'Ivoire</li>
+          <li>
+            <a href="mailto:karimgamin2000@gmail.com" class="hover:text-white">karimgamin2000@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="hover:text-white">github.com/karimgamin2000-beep</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/abdoul-karim-konate-15635b3b0" target="_blank" rel="noopener noreferrer" class="hover:text-white">linkedin.com/in/abdoul-karim-konate-15635b3b0</a>
+          </li>
+          <li>
+            <a href="https://x.com/Karimpromax1" target="_blank" rel="noopener noreferrer" class="hover:text-white">x.com/Karimpromax1</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- COMPÉTENCES avec barres de progression -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-[#38bdf8] pb-2 border-b border-slate-700/80 mb-3.5">
+          Compétences
+        </h2>
+        <div class="space-y-3.5 text-xs">
+          <div>
+            <p class="text-slate-200 font-medium mb-1">Python &amp; Django (MVT)</p>
+            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div class="h-full bg-[#0ea5e9] rounded-full" style="width: 90%;"></div>
+            </div>
+          </div>
+          <div>
+            <p class="text-slate-200 font-medium mb-1">Intelligence Artificielle &amp; Agents IA</p>
+            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div class="h-full bg-[#0ea5e9] rounded-full" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div>
+            <p class="text-slate-200 font-medium mb-1">Développement Web (HTML5, CSS3, JS)</p>
+            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div class="h-full bg-[#0ea5e9] rounded-full" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div>
+            <p class="text-slate-200 font-medium mb-1">Bases de données (SQL, SQLite)</p>
+            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div class="h-full bg-[#0ea5e9] rounded-full" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div>
+            <p class="text-slate-200 font-medium mb-1">Data Science &amp; Automatisation</p>
+            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div class="h-full bg-[#0ea5e9] rounded-full" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AUTRES COMPÉTENCES -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-[#38bdf8] pb-2 border-b border-slate-700/80 mb-3">
+          Autres compétences
+        </h2>
+        <div class="flex flex-wrap gap-1.5 text-[11px]">
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Travail d'équipe</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Git</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">GitHub</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Tailwind CSS</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">jQuery</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Prompt Engineering</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">VS Code</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Robotique / IoT</span>
+        </div>
+      </section>
+
+      <!-- LANGUES -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-[#38bdf8] pb-2 border-b border-slate-700/80 mb-3">
+          Langues
+        </h2>
+        <ul class="space-y-1.5 text-xs text-slate-300">
+          <li>Français : langue maternelle</li>
+          <li>Anglais : bilingue (cursus IIT)</li>
+        </ul>
+      </section>
+
+      <!-- CENTRES D'INTÉRÊT -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-[#38bdf8] pb-2 border-b border-slate-700/80 mb-3">
+          Centres d'intérêt
+        </h2>
+        <div class="flex flex-wrap gap-1.5 text-[11px]">
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Intelligence Artificielle</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Robotique</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Développement</span>
+          <span class="px-2.5 py-1 rounded-full bg-[#132642] text-sky-200 border border-sky-900/60">Systèmes &amp; OS</span>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Colonne droite blanche -->
+    <div class="md:col-span-8 p-7 sm:p-9 space-y-7 bg-white text-slate-800">
+      <!-- En-tête -->
+      <header class="pb-5 border-b border-slate-200">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          KONATE ABDOUL KARIM
+        </h1>
+        <p class="mt-1 text-base font-medium text-[#0284c7]">
+          Étudiant en Computer Science &amp; Spécialiste IA
+        </p>
+      </header>
+
+      <!-- PROFIL -->
+      <section>
+        <h2 class="flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
+          <span class="w-3.5 h-3.5 rounded-sm bg-[#0ea5e9] inline-block" aria-hidden="true"></span>
+          <span>Profil</span>
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Étudiant en Licence 2 Computer Science à l'Institut Ivoirien de Technologie (IIT), bilingue français / anglais et spécialisé en Intelligence Artificielle. Je construis des systèmes en Python, des applications web avec Django et des outils interactifs dans le navigateur. Rigoureux et orienté produit, je recherche un stage ou une alternance en AI Engineering ou développement Python.
+        </p>
+      </section>
+
+      <!-- FORMATION -->
+      <section>
+        <h2 class="flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">
+          <span class="w-3.5 h-3.5 rounded-sm bg-[#0ea5e9] inline-block" aria-hidden="true"></span>
+          <span>Formation</span>
+        </h2>
+        <div class="relative pl-5 border-l border-slate-200 space-y-4">
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#0ea5e9] ring-4 ring-white" aria-hidden="true"></span>
+            <p class="text-xs font-semibold text-[#0284c7]">En cours</p>
+            <h3 class="text-sm font-bold text-slate-900 mt-0.5">Licence 2 — Computer Science</h3>
+            <p class="text-xs italic text-slate-500">Institut Ivoirien de Technologie (IIT / VITIB), Grand-Bassam</p>
+            <ul class="mt-2 text-xs text-slate-600 list-disc list-inside space-y-1">
+              <li>Algorithmique avancée, Algèbre III, Analyse III, Bases de données II</li>
+              <li>Réseaux &amp; Télécoms, Introduction à la Robotique &amp; Systèmes embarqués / IoT</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETS -->
+      <section>
+        <h2 class="flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">
+          <span class="w-3.5 h-3.5 rounded-sm bg-[#0ea5e9] inline-block" aria-hidden="true"></span>
+          <span>Projets</span>
+        </h2>
+        <div class="relative pl-5 border-l border-slate-200 space-y-4">
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#0ea5e9] ring-4 ring-white" aria-hidden="true"></span>
+            <p class="text-xs font-semibold text-[#0284c7]">Projet personnel</p>
+            <h3 class="text-sm font-bold text-slate-900">Web-Linux — OS Linux dans le navigateur</h3>
+            <p class="text-xs italic text-slate-500">HTML5, CSS3, Vanilla JS, Shell lwsh</p>
+            <p class="mt-1 text-xs text-slate-600">
+              Système d'exploitation Linux côté client sans installation : bureau Ubuntu, 7 applications, fenêtres déplaçables et système de fichiers persistant.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#0ea5e9] ring-4 ring-white" aria-hidden="true"></span>
+            <p class="text-xs font-semibold text-[#0284c7]">Projet académique</p>
+            <h3 class="text-sm font-bold text-slate-900">BiblioIIT — Gestion de bibliothèque</h3>
+            <p class="text-xs italic text-slate-500">Python 3, SQLite, unittest</p>
+            <p class="mt-1 text-xs text-slate-600">
+              Application console modulaire avec persistance SQLite, gestion des emprunts, retours et détection automatique des retards.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#0ea5e9] ring-4 ring-white" aria-hidden="true"></span>
+            <p class="text-xs font-semibold text-[#0284c7]">Projet académique</p>
+            <h3 class="text-sm font-bold text-slate-900">SondagesIIT — Site public de sondages</h3>
+            <p class="text-xs italic text-slate-500">Python, Django 6.1, SQLite, MVT</p>
+            <p class="mt-1 text-xs text-slate-600">
+              Application web permettant de consulter des sondages, voter avec mise à jour atomique et gérer les questions via l'admin Django.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#0ea5e9] ring-4 ring-white" aria-hidden="true"></span>
+            <p class="text-xs font-semibold text-[#0284c7]">Projet personnel</p>
+            <h3 class="text-sm font-bold text-slate-900">Portfolio personnel minimaliste</h3>
+            <p class="text-xs italic text-slate-500">HTML5, Tailwind CSS, jQuery, GitHub Pages</p>
+            <p class="mt-1 text-xs text-slate-600">
+              Site responsive présentant mon parcours, mes projets et mon CV interactif, déployé en ligne.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPÉRIENCES -->
+      <section>
+        <h2 class="flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
+          <span class="w-3.5 h-3.5 rounded-sm bg-[#0ea5e9] inline-block" aria-hidden="true"></span>
+          <span>Expériences</span>
+        </h2>
+        <ul class="text-xs text-slate-600 list-disc list-inside space-y-1.5">
+          <li>Conception d'automatisations IA et d'outils web orientés produit.</li>
+          <li>Développement en équipe sur GitHub.</li>
+        </ul>
+      </section>
+
+      <!-- DEVISE -->
+      <section class="pt-2 border-t border-slate-200">
+        <h2 class="flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+          <span class="w-3.5 h-3.5 rounded-sm bg-[#0ea5e9] inline-block" aria-hidden="true"></span>
+          <span>Devise</span>
+        </h2>
+        <p class="text-xs sm:text-sm italic text-slate-600">
+          Apprendre chaque jour, concevoir avec rigueur et transformer les idées en solutions.
+        </p>
+      </section>
+    </div>
+
+  </main>
+  <script src="js/cv-download.js"></script>
+</body>
+</html>

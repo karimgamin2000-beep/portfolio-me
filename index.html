@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KONATE ABDOUL KARIM — Computer Science &amp; Spécialiste IA</title>
+  <meta name="description" content="Portfolio de KONATE ABDOUL KARIM, étudiant en Computer Science à l'IIT et spécialiste en IA. Projets Python, Django, Web-Linux et systèmes intelligents.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111111;
+      --surface: #18181b;
+      --surface-hover: #222226;
+      --border: #27272a;
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --accent: #f4f4f5;
+      --accent-text: #111111;
+    }
+    html.light {
+      color-scheme: light;
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --surface-hover: #f4f4f5;
+      --border: #e4e4e7;
+      --text: #18181b;
+      --text-muted: #52525b;
+      --accent: #18181b;
+      --accent-text: #fafafa;
+    }
+    body {
+      font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+    h1, h2, h3, .font-display {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.625rem; }
+    h3 { font-size: 1.125rem; }
+    .font-serif-italic {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+    }
+    .font-mono-code {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    }
+    .theme-surface {
+      background-color: var(--surface);
+      border-color: var(--border);
+    }
+    .theme-card {
+      background-color: var(--surface);
+      border-color: var(--border);
+      padding: 1.5rem;
+    }
+    .theme-border {
+      border-color: var(--border);
+    }
+    .theme-muted {
+      color: var(--text-muted);
+    }
+    .theme-pill-cta {
+      background-color: var(--accent);
+      color: var(--accent-text);
+    }
+    ::selection {
+      background-color: var(--accent);
+      color: var(--accent-text);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script>
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.classList.add("light");
+    }
+  </script>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <!-- Header style Melvynx -->
+  <header class="sticky top-0 z-40 backdrop-blur-md border-b theme-border" style="background-color: color-mix(in srgb, var(--bg) 88%, transparent);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      <a href="#accueil" class="font-serif-italic text-2xl font-medium tracking-tight hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-md px-1">
+        KAK
+      </a>
+
+      <div class="flex items-center gap-2 sm:gap-4">
+        <!-- Navigation desktop -->
+        <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-1 text-sm font-medium theme-muted">
+          <a href="#accueil" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Accueil</a>
+          <a href="#projets" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Projets</a>
+          <a href="#cv" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Parcours</a>
+          <a href="#contact" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Contact</a>
+        </nav>
+
+        <a href="cv.html" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-semibold theme-pill-cta hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400">
+          Consulter le CV
+        </a>
+
+        <!-- Bouton mode clair / sombre -->
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Basculer entre le mode clair et le mode sombre"
+          class="p-2 rounded-lg border theme-border theme-muted hover:text-[var(--text)] cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+        >
+          <!-- Icône lune (mode clair actif) -->
+          <svg id="icon-moon" class="hidden w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+          <!-- Icône soleil (mode sombre actif) -->
+          <svg id="icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/>
+          </svg>
+        </button>
+
+        <!-- Bouton menu mobile -->
+        <button
+          id="menu-toggle"
+          type="button"
+          aria-label="Ouvrir le menu de navigation"
+          aria-expanded="false"
+          class="md:hidden p-2 rounded-lg theme-muted hover:text-[var(--text)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-menu" aria-label="Navigation mobile" class="hidden md:hidden border-t theme-border px-4 py-3 space-y-1 text-sm font-medium" style="background-color: var(--bg);">
+      <a href="#accueil" class="block py-2 theme-muted hover:text-[var(--text)]">Accueil</a>
+      <a href="#projets" class="block py-2 theme-muted hover:text-[var(--text)]">Projets</a>
+      <a href="#cv" class="block py-2 theme-muted hover:text-[var(--text)]">Parcours</a>
+      <a href="#contact" class="block py-2 font-semibold">Contact</a>
+      <a href="cv.html" class="block py-2 font-semibold underline underline-offset-4">Consulter le CV</a>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Section #accueil (Hero style Melvynx) -->
+    <section id="accueil" class="py-12 sm:py-16 border-b theme-border">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border theme-border bg-white shrink-0 shadow-sm">
+          <img
+            src="assets/karim-pro.jpg"
+            alt="KONATE ABDOUL KARIM en costume sombre et chemise blanche"
+            width="986"
+            height="1024"
+            class="w-full h-full object-cover object-top"
+          >
+        </div>
+
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            KONATE ABDOUL KARIM
+          </h1>
+          <p class="mt-1 text-base sm:text-lg theme-muted font-medium">
+            Étudiant en Computer Science &amp; Spécialiste IA
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-7 font-serif-italic text-lg sm:text-xl leading-relaxed theme-muted max-w-[65ch]">
+        Passionné par l'ingénierie logicielle et l'intelligence artificielle. Je conçois des systèmes en Python, des applications web Django et des outils interactifs qui transforment les idées en produits concrets.
+      </p>
+
+      <!-- Plateformes cliquables style Melvynx -->
+      <div class="mt-6 flex flex-wrap items-center gap-2.5">
+        <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border theme-surface text-xs font-medium hover:opacity-85 transition-opacity">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/abdoul-karim-konate-15635b3b0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border theme-surface text-xs font-medium hover:opacity-85 transition-opacity">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <a href="https://x.com/Karimpromax1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border theme-surface text-xs font-medium hover:opacity-85 transition-opacity">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span>X</span>
+        </a>
+
+        <a href="mailto:karimgamin2000@gmail.com" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border theme-surface text-xs font-medium hover:opacity-85 transition-opacity">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>E-mail</span>
+        </a>
+      </div>
+
+      <!-- Points clés style Melvynx ("Ce que je fais") -->
+      <div class="mt-12">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Ce que je fais</h2>
+        <ul class="mt-4 space-y-2.5 text-sm sm:text-base theme-muted list-disc list-inside leading-relaxed">
+          <li>Étudiant en Licence 2 Computer Science à l'IIT (Côte d'Ivoire), cursus bilingue FR/EN</li>
+          <li>Spécialisation en Python, Django (MVT), Data Science et agents IA autonomes</li>
+          <li>Conception d'outils web sans sur-ingénierie, du prototype à la mise en production</li>
+          <li>Ouvert aux opportunités de stage ou d'alternance en AI Engineering &amp; Backend</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section #projets -->
+    <section id="projets" class="py-14 border-b theme-border">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight">Ce que j'ai construit</h2>
+          <p class="mt-1 text-sm theme-muted">
+            Projets livrés (<span id="projets-compteur" class="font-mono-code tabular-nums">4 projets affichés</span>)
+          </p>
+        </div>
+
+        <!-- Filtres jQuery -->
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets par catégorie">
+          <button type="button" data-filtre="tous" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold theme-pill-cta cursor-pointer transition-opacity">
+            Tous
+          </button>
+          <button type="button" data-filtre="python" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-medium border theme-surface theme-muted hover:text-[var(--text)] cursor-pointer transition-colors">
+            Python
+          </button>
+          <button type="button" data-filtre="web" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-medium border theme-surface theme-muted hover:text-[var(--text)] cursor-pointer transition-colors">
+            Web &amp; OS
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Projet 1 : Web-Linux -->
+        <article
+          class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
+          data-categorie="web"
+          data-titre="Web-Linux : OS Linux dans le navigateur"
+          data-stack="HTML5 · CSS3 · Vanilla JS · Shell lwsh · VFS localStorage"
+          data-details="Mini système d'exploitation inspiré d'Ubuntu fonctionnant entièrement dans le navigateur sans installation ni serveur : gestionnaire de fenêtres déplaçables, 7 applications, terminal lwsh complet (ls, cd, grep, tree, pipes |, redirections >, historique, autocomplétion Tab) et système de fichiers virtuel persistant."
+          data-github="https://linux-web-app.vercel.app"
+        >
+          <div>
+            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Vanilla JS / OS Web</span>
+            <h3 class="text-lg font-bold">Web-Linux : OS dans le navigateur</h3>
+            <p class="mt-2 text-sm theme-muted leading-relaxed">
+              Environnement Linux (édition Ubuntu) exécuté à 100 % côté client : bureau, 7 apps, fenêtres déplaçables et terminal <code class="font-mono-code text-xs">lwsh</code>.
+            </p>
+            <p class="mt-3 font-mono-code text-xs theme-muted">
+              HTML5 · CSS3 · Vanilla JS
+            </p>
+          </div>
+          <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
+            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Détails
+            </button>
+            <a href="https://linux-web-app.vercel.app" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
+              Démo live →
+            </a>
+          </div>
+        </article>
+
+        <!-- Projet 2 : BiblioIIT -->
+        <article
+          class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
+          data-categorie="python"
+          data-titre="BiblioIIT : Gestion de bibliothèque"
+          data-stack="Python 3 · SQLite · unittest · Git"
+          data-details="Application console modulaire découpée en 5 modules (regles.py, modeles.py, depot_sqlite.py, service.py, console.py) avec gestion des emprunts, retours, calcul automatique des retards et 8 tests unitaires."
+          data-github="https://github.com/karimgamin2000-beep"
+        >
+          <div>
+            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Python / SQLite</span>
+            <h3 class="text-lg font-bold">BiblioIIT : Bibliothèque console</h3>
+            <p class="mt-2 text-sm theme-muted leading-relaxed">
+              Application console modulaire en Python avec persistance SQLite, gestion des emprunts, retours et détection des retards.
+            </p>
+            <p class="mt-3 font-mono-code text-xs theme-muted">
+              Python 3 · SQLite · unittest
+            </p>
+          </div>
+          <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
+            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Détails
+            </button>
+            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
+              Code GitHub →
+            </a>
+          </div>
+        </article>
+
+        <!-- Projet 3 : SondagesIIT -->
+        <article
+          class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
+          data-categorie="python"
+          data-titre="SondagesIIT : Site de votes Django"
+          data-stack="Python · Django 6.1 · SQLite · MVT"
+          data-details="Site web public suivant le modèle MVT de Django : consultation des sondages publiés, vote sécurisé avec protection CSRF et mise à jour atomique F('votes') + 1, interface d'administration et suite de 8 tests automatisés."
+          data-github="https://github.com/karimgamin2000-beep"
+        >
+          <div>
+            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Django 6.1 / MVT</span>
+            <h3 class="text-lg font-bold">SondagesIIT (Django Polls)</h3>
+            <p class="mt-2 text-sm theme-muted leading-relaxed">
+              Application web publique permettant de consulter des sondages, voter en ligne et suivre les résultats avec administration Django.
+            </p>
+            <p class="mt-3 font-mono-code text-xs theme-muted">
+              Django · ORM · Admin · Tests
+            </p>
+          </div>
+          <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
+            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Détails
+            </button>
+            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
+              Code GitHub →
+            </a>
+          </div>
+        </article>
+
+        <!-- Projet 4 : Portfolio -->
+        <article
+          class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
+          data-categorie="web"
+          data-titre="Portfolio Personnel Minimaliste"
+          data-stack="HTML5 · Tailwind CSS · jQuery · GitHub Pages"
+          data-details="Site vitrine monopage conçu en approche mobile-first (lisible dès 360 px sans défilement horizontal), avec thème clair/sombre, filtrage dynamique des projets, modale interactive en jQuery et CV PDF téléchargeable."
+          data-github="https://github.com/karimgamin2000-beep"
+        >
+          <div>
+            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">HTML5 / Tailwind / jQuery</span>
+            <h3 class="text-lg font-bold">Portfolio Monopage</h3>
+            <p class="mt-2 text-sm theme-muted leading-relaxed">
+              Interface minimaliste (mode clair/sombre) et responsive avec filtrage jQuery, modale de détails et CV téléchargeable.
+            </p>
+            <p class="mt-3 font-mono-code text-xs theme-muted">
+              HTML5 · Tailwind · jQuery
+            </p>
+          </div>
+          <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
+            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Détails
+            </button>
+            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
+              Code GitHub →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section #cv et Section #contact -->
+    <div class="py-14 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- Section #cv -->
+      <section id="cv" class="rounded-xl border theme-card">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="text-2xl font-bold">Parcours &amp; Stack</h2>
+            <p class="text-xs theme-muted mt-1">Computer Science, Ingénierie IA &amp; Web</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="cv.html" class="px-3.5 py-2 rounded-lg border theme-border text-xs font-semibold hover:opacity-80 transition-opacity">
+              Voir le CV
+            </a>
+            <a href="assets/cv-karim.pdf" download="CV-KONATE-ABDOUL-KARIM.pdf" data-download-cv class="px-3.5 py-2 rounded-lg text-xs font-semibold theme-pill-cta hover:opacity-90 transition-opacity">
+              Télécharger PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-5 text-sm">
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-wider theme-muted mb-1.5">Formation</h3>
+            <p class="font-semibold">Licence 2 Computer Science · IIT (Grand-Bassam, Côte d'Ivoire)</p>
+            <p class="theme-muted mt-1 leading-relaxed text-xs sm:text-sm">
+              Cursus bilingue FR/EN : Algorithmique avancée, Bases de données II, Algèbre &amp; Analyse III, Réseaux &amp; Télécoms, Robotique &amp; IoT.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-wider theme-muted mb-2">Stack technique</h3>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Python</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Django</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">AI Agents &amp; LLMs</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Data Science</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">SQL / SQLite</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">HTML5 / CSS3 / JS</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Tailwind CSS</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">jQuery</span>
+              <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Git &amp; GitHub</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-wider theme-muted mb-2">Expériences</h3>
+            <ul class="space-y-1.5 theme-muted list-disc list-inside text-xs sm:text-sm">
+              <li>Conception d'automatisations IA et d'outils web orientés produit.</li>
+              <li>Développement en équipe sur GitHub.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section #contact -->
+      <section id="contact" class="rounded-xl border theme-card">
+        <h2 class="text-2xl font-bold mb-1">Me contacter</h2>
+        <p class="text-sm theme-muted mb-5">
+          Stage, alternance ou projet technique : discutons-en directement.
+        </p>
+
+        <form id="contact-form" class="space-y-3.5" novalidate>
+          <div>
+            <label for="nom" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Nom complet</label>
+            <input type="text" id="nom" name="nom" required placeholder="Votre nom" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);">
+          </div>
+          <div>
+            <label for="email" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Adresse e-mail</label>
+            <input type="email" id="email" name="email" required placeholder="vous@exemple.com" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);">
+          </div>
+          <div>
+            <label for="message" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Message</label>
+            <textarea id="message" name="message" rows="3" required placeholder="Votre message..." class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);"></textarea>
+          </div>
+          <button type="submit" class="w-full py-2.5 px-4 rounded-lg text-sm font-semibold theme-pill-cta hover:opacity-90 transition-opacity cursor-pointer">
+            Envoyer le message
+          </button>
+          <p id="form-feedback" class="hidden text-sm font-medium rounded-lg p-3" role="status"></p>
+        </form>
+
+        <div class="mt-5 pt-4 border-t theme-border flex flex-wrap items-center gap-2.5">
+          <button type="button" id="copier-email" data-email="karimgamin2000@gmail.com" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border theme-border text-xs font-medium cursor-pointer hover:opacity-80">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>karimgamin2000@gmail.com</span>
+          </button>
+
+          <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border theme-border text-xs font-medium hover:opacity-80">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/abdoul-karim-konate-15635b3b0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border theme-border text-xs font-medium hover:opacity-80">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://x.com/Karimpromax1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border theme-border text-xs font-medium hover:opacity-80">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span>X</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modale de détail de projet (jQuery) -->
+  <div id="projet-modale" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modale-titre">
+    <div class="rounded-2xl max-w-lg w-full shadow-2xl border theme-card">
+      <div class="flex items-start justify-between gap-4">
+        <h3 id="modale-titre" class="text-xl font-bold"></h3>
+        <button type="button" id="modale-fermer" aria-label="Fermer la fenêtre" class="p-1.5 rounded-lg theme-muted hover:text-[var(--text)] cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <p id="modale-stack" class="mt-2 font-mono-code text-xs font-semibold theme-muted"></p>
+      <p id="modale-details" class="mt-4 text-sm theme-muted leading-relaxed"></p>
+      <div class="mt-6 flex justify-end gap-3">
+        <button type="button" id="modale-fermer-btn" class="px-4 py-2 rounded-lg border theme-border text-sm font-medium cursor-pointer">
+          Fermer
+        </button>
+        <a id="modale-github" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-sm font-semibold theme-pill-cta hover:opacity-90">
+          Ouvrir le lien
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bouton Retour en haut -->
+  <button id="btn-haut" type="button" aria-label="Retour en haut de la page" class="hidden fixed bottom-5 right-5 z-40 w-10 h-10 rounded-full border theme-surface shadow-lg cursor-pointer flex items-center justify-center">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="border-t theme-border theme-muted py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <p>&copy; 2026 KONATE ABDOUL KARIM · Computer Science &amp; IA (IIT).</p>
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text)] transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/abdoul-karim-konate-15635b3b0" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text)] transition-colors">LinkedIn</a>
+        <a href="https://x.com/Karimpromax1" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text)] transition-colors">X</a>
+        <a href="mailto:karimgamin2000@gmail.com" class="hover:text-[var(--text)] transition-colors">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/cv-download.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

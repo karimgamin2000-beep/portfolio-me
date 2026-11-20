@@ -1,0 +1,15 @@
+KARIM — Étudiant en Informatique (IIT, Côte d'Ivoire)
+Objectif : Stage / Alternance en Développement Python, Django, Data & IA
+
+FORMATION
+- Licence en Informatique — Institut Ivoirien de Technologie (IIT), Côte d'Ivoire
+
+COMPÉTENCES
+- Langages : Python, HTML5, CSS3, JavaScript (jQuery), SQL
+- Frameworks & Outils : Django, Tailwind CSS, SQLite, Git & GitHub
+- Domaines : Data Science, Automatisation IA, Développement Web
+
+PROJETS ACADÉMIQUES
+- BiblioIIT : Application console de gestion de bibliothèque (Python + SQLite)
+- Site de Sondages Django : Application web MVT avec votes et administration
+- Portfolio Personnel : Site monopage responsive (Tailwind + jQuery) sur GitHub Pages
