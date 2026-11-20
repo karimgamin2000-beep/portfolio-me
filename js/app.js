@@ -123,7 +123,7 @@ $(document).ready(function () {
     }, 2000);
   });
 
-  // 6. Validation et feedback du formulaire de contact
+  // 6. Envoi réel du formulaire de contact via FormSubmit (+ fallback mailto)
   $("#contact-form").on("submit", function (e) {
     e.preventDefault();
 
@@ -131,6 +131,8 @@ $(document).ready(function () {
     const email = $("#email").val().trim();
     const message = $("#message").val().trim();
     const $feedback = $("#form-feedback");
+    const $submit = $("#contact-submit");
+    const form = this;
 
     $feedback.removeClass("hidden bg-red-950/70 text-red-300 border border-red-800 bg-emerald-950/70 text-emerald-300 border-emerald-800");
 
@@ -151,11 +153,51 @@ $(document).ready(function () {
       return;
     }
 
-    $feedback
-      .addClass("bg-emerald-950/70 text-emerald-300 border border-emerald-800")
-      .text("Merci " + nom + " ! Votre message a bien été enregistré (mode démo statique).")
-      .fadeIn(200);
+    $submit.prop("disabled", true).text("Envoi en cours...");
 
-    this.reset();
+    fetch("https://formsubmit.co/ajax/karimgamin2000@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: nom,
+        email: email,
+        message: message,
+        _subject: "Nouveau message depuis le portfolio KAK",
+        _replyto: email,
+      }),
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+        return response.json();
+      })
+      .then(function () {
+        $feedback
+          .addClass("bg-emerald-950/70 text-emerald-300 border border-emerald-800")
+          .text("Merci " + nom + " ! Votre message a bien été envoyé à karimgamin2000@gmail.com.")
+          .fadeIn(200);
+        form.reset();
+      })
+      .catch(function () {
+        const subject = encodeURIComponent("Contact Portfolio KAK — " + nom);
+        const body = encodeURIComponent("De : " + nom + " (" + email + ")\n\n" + message);
+        $feedback
+          .addClass("bg-red-950/70 text-red-300 border border-red-800")
+          .html(
+            'L\'envoi automatique a échoué. <a class="underline font-semibold" href="mailto:karimgamin2000@gmail.com?subject=' +
+              subject +
+              "&body=" +
+              body +
+              '">Ouvrir votre messagerie</a>.'
+          )
+          .fadeIn(200);
+      })
+      .finally(function () {
+        $submit.prop("disabled", false).text("Envoyer le message");
+      });
   });
 });
