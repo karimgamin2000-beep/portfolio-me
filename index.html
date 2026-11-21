@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KONATE ABDOUL KARIM — Computer Science &amp; Spécialiste IA</title>
-  <meta name="description" content="Portfolio de KONATE ABDOUL KARIM, étudiant en Computer Science à l'IIT et spécialiste en IA. Projets Python, Django, Web-Linux et systèmes intelligents.">
+  <title>KONATE ABDOUL KARIM — Computer Science &amp; AI Specialist</title>
+  <meta name="description" content="Portfolio of KONATE ABDOUL KARIM, Computer Science student at IIT and AI Specialist. Python, Django, Web-Linux, and AI systems.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,31 +101,65 @@
         KAK
       </a>
 
-      <div class="flex items-center gap-2 sm:gap-4">
+      <div class="flex items-center gap-2 sm:gap-3">
         <!-- Navigation desktop -->
-        <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-1 text-sm font-medium theme-muted">
-          <a href="#accueil" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Accueil</a>
-          <a href="#projets" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Projets</a>
-          <a href="#cv" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Parcours</a>
-          <a href="#contact" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Contact</a>
+        <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-1 text-sm font-medium theme-muted">
+          <a href="#accueil" data-i18n="nav_home" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Home</a>
+          <a href="#projets" data-i18n="nav_projects" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Projects</a>
+          <a href="#cv" data-i18n="nav_cv" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Background</a>
+          <a href="#contact" data-i18n="nav_contact" class="nav-link px-3 py-1.5 rounded-lg hover:text-[var(--text)] transition-colors">Contact</a>
         </nav>
 
-        <a href="cv.html" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-semibold theme-pill-cta hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400">
-          Consulter le CV
+        <a href="cv.html" data-i18n="nav_view_cv" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-semibold theme-pill-cta hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400">
+          View CV
         </a>
+
+        <!-- Sélecteur de langue EN / FR (juste à côté du mode nuit/jour) -->
+        <div class="relative" id="lang-switcher">
+          <button
+            id="lang-toggle"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="Change language"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border theme-border theme-surface text-xs font-medium hover:opacity-85 cursor-pointer transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+          >
+            <svg class="w-3.5 h-3.5 theme-muted" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+            </svg>
+            <span id="lang-label">EN</span>
+            <svg class="w-3 h-3 theme-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id="lang-menu"
+            role="menu"
+            class="hidden absolute right-0 mt-2 w-36 rounded-xl border theme-border shadow-lg p-2 z-50"
+            style="background-color: var(--surface);"
+          >
+            <button type="button" data-set-lang="en" role="menuitem" class="lang-option w-full text-left px-3.5 py-2 text-xs font-medium hover:opacity-80 flex items-center justify-between cursor-pointer">
+              <span>English</span>
+              <span class="font-mono-code theme-muted">EN</span>
+            </button>
+            <button type="button" data-set-lang="fr" role="menuitem" class="lang-option w-full text-left px-3.5 py-2 text-xs font-medium hover:opacity-80 flex items-center justify-between cursor-pointer">
+              <span>Français</span>
+              <span class="font-mono-code theme-muted">FR</span>
+            </button>
+          </div>
+        </div>
 
         <!-- Bouton mode clair / sombre -->
         <button
           id="theme-toggle"
           type="button"
-          aria-label="Basculer entre le mode clair et le mode sombre"
+          aria-label="Toggle light and dark mode"
           class="p-2 rounded-lg border theme-border theme-muted hover:text-[var(--text)] cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
         >
-          <!-- Icône lune (mode clair actif) -->
           <svg id="icon-moon" class="hidden w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
           </svg>
-          <!-- Icône soleil (mode sombre actif) -->
           <svg id="icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="4"/>
             <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/>
@@ -136,7 +170,7 @@
         <button
           id="menu-toggle"
           type="button"
-          aria-label="Ouvrir le menu de navigation"
+          aria-label="Open navigation menu"
           aria-expanded="false"
           class="md:hidden p-2 rounded-lg theme-muted hover:text-[var(--text)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
         >
@@ -147,12 +181,12 @@
       </div>
     </div>
 
-    <nav id="mobile-menu" aria-label="Navigation mobile" class="hidden md:hidden border-t theme-border px-4 py-3 space-y-1 text-sm font-medium" style="background-color: var(--bg);">
-      <a href="#accueil" class="block py-2 theme-muted hover:text-[var(--text)]">Accueil</a>
-      <a href="#projets" class="block py-2 theme-muted hover:text-[var(--text)]">Projets</a>
-      <a href="#cv" class="block py-2 theme-muted hover:text-[var(--text)]">Parcours</a>
-      <a href="#contact" class="block py-2 font-semibold">Contact</a>
-      <a href="cv.html" class="block py-2 font-semibold underline underline-offset-4">Consulter le CV</a>
+    <nav id="mobile-menu" aria-label="Mobile navigation" class="hidden md:hidden border-t theme-border px-4 py-3 space-y-1 text-sm font-medium" style="background-color: var(--bg);">
+      <a href="#accueil" data-i18n="nav_home" class="block py-2 theme-muted hover:text-[var(--text)]">Home</a>
+      <a href="#projets" data-i18n="nav_projects" class="block py-2 theme-muted hover:text-[var(--text)]">Projects</a>
+      <a href="#cv" data-i18n="nav_cv" class="block py-2 theme-muted hover:text-[var(--text)]">Background</a>
+      <a href="#contact" data-i18n="nav_contact" class="block py-2 font-semibold">Contact</a>
+      <a href="cv.html" data-i18n="nav_view_cv" class="block py-2 font-semibold underline underline-offset-4">View CV</a>
     </nav>
   </header>
 
@@ -163,7 +197,7 @@
         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border theme-border bg-white shrink-0 shadow-sm">
           <img
             src="assets/karim-pro.jpg"
-            alt="KONATE ABDOUL KARIM en costume sombre et chemise blanche"
+            alt="KONATE ABDOUL KARIM in dark suit and white shirt"
             width="986"
             height="1024"
             class="w-full h-full object-cover object-top"
@@ -174,17 +208,17 @@
           <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
             KONATE ABDOUL KARIM
           </h1>
-          <p class="mt-1 text-base sm:text-lg theme-muted font-medium">
-            Étudiant en Computer Science &amp; Spécialiste IA
+          <p data-i18n="hero_role" class="mt-1 text-base sm:text-lg theme-muted font-medium">
+            Computer Science Student &amp; AI Specialist
           </p>
         </div>
       </div>
 
-      <p class="mt-7 font-serif-italic text-lg sm:text-xl leading-relaxed theme-muted max-w-[65ch]">
-        Passionné par l'ingénierie logicielle et l'intelligence artificielle. Je conçois des systèmes d'IA (agents, workflows), des applications, des sites web et des outils interactifs qui transforment les idées en produits concrets.
+      <p data-i18n="hero_bio" class="mt-7 font-serif-italic text-lg sm:text-xl leading-relaxed theme-muted max-w-[65ch]">
+        Passionate about software engineering and artificial intelligence. I build AI systems (agents, workflows), applications, websites, and interactive tools that turn ideas into concrete products.
       </p>
 
-      <!-- Plateformes cliquables style Melvynx -->
+      <!-- Plateformes cliquables -->
       <div class="mt-6 flex flex-wrap items-center gap-2.5">
         <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border theme-surface text-xs font-medium hover:opacity-85 transition-opacity">
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -211,19 +245,19 @@
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
-          <span>E-mail</span>
+          <span data-i18n="social_email">Email</span>
         </a>
       </div>
 
-      <!-- Points clés style Melvynx ("Ce que je fais") -->
+      <!-- Points clés -->
       <div class="mt-12">
-        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Ce que je fais</h2>
+        <h2 data-i18n="what_i_do_title" class="text-xl sm:text-2xl font-bold tracking-tight">What I do</h2>
         <ul class="mt-4 space-y-2.5 text-sm sm:text-base theme-muted list-disc list-inside leading-relaxed">
-          <li>Étudiant en Licence 2 Computer Science à l'IIT (Côte d'Ivoire), cursus bilingue FR/EN</li>
-          <li>Spécialisation en Informatique Génie Logiciel (IGL) et en Intelligence Artificielle</li>
-          <li>Apprenant curieux et autodidacte en analyse et en science des données</li>
-          <li>Conception d'outils web sans sur-ingénierie, du prototype à la mise en production</li>
-          <li>Ouvert aux projets ambitieux / d'envergure, aux collaborations sur des projets open-source, à des opportunités de stage ou d'alternance dans le domaine du développement, de l'IA et de la data</li>
+          <li data-i18n="what_1">2nd-year Computer Science student at IIT (Côte d'Ivoire), bilingual FR/EN track</li>
+          <li data-i18n="what_2">Specializing in Software Engineering (SWE) and Artificial Intelligence</li>
+          <li data-i18n="what_3">Curious, self-taught learner in data analysis and data science</li>
+          <li data-i18n="what_4">Building pragmatic web tools without over-engineering, from prototype to production</li>
+          <li data-i18n="what_5">Open to ambitious, large-scale projects, open-source collaborations, and internship or apprenticeship opportunities in software development, AI, and data</li>
         </ul>
       </div>
     </section>
@@ -232,21 +266,21 @@
     <section id="projets" class="py-14 border-b theme-border">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="text-2xl font-bold tracking-tight">Ce que j'ai construit</h2>
+          <h2 data-i18n="projects_title" class="text-2xl font-bold tracking-tight">What I've built</h2>
           <p class="mt-1 text-sm theme-muted">
-            Projets livrés (<span id="projets-compteur" class="font-mono-code tabular-nums">4 projets affichés</span>)
+            <span data-i18n="projects_sub_prefix">Shipped projects (</span><span id="projets-compteur" class="font-mono-code tabular-nums">4 projects shown</span><span data-i18n="projects_sub_suffix">)</span>
           </p>
         </div>
 
         <!-- Filtres jQuery -->
-        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets par catégorie">
-          <button type="button" data-filtre="tous" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold theme-pill-cta cursor-pointer transition-opacity">
-            Tous
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
+          <button type="button" data-filtre="tous" data-i18n="filter_all" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold theme-pill-cta cursor-pointer transition-opacity">
+            All
           </button>
           <button type="button" data-filtre="python" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-medium border theme-surface theme-muted hover:text-[var(--text)] cursor-pointer transition-colors">
             Python
           </button>
-          <button type="button" data-filtre="web" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-medium border theme-surface theme-muted hover:text-[var(--text)] cursor-pointer transition-colors">
+          <button type="button" data-filtre="web" data-i18n="filter_web" class="filtre-btn px-3.5 py-1.5 rounded-lg text-xs font-medium border theme-surface theme-muted hover:text-[var(--text)] cursor-pointer transition-colors">
             Web &amp; OS
           </button>
         </div>
@@ -257,27 +291,25 @@
         <article
           class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
           data-categorie="web"
-          data-titre="Web-Linux : OS Linux dans le navigateur"
-          data-stack="HTML5 · CSS3 · Vanilla JS · Shell lwsh · VFS localStorage"
-          data-details="Mini système d'exploitation inspiré d'Ubuntu fonctionnant entièrement dans le navigateur sans installation ni serveur : gestionnaire de fenêtres déplaçables, 7 applications, terminal lwsh complet (ls, cd, grep, tree, pipes |, redirections >, historique, autocomplétion Tab) et système de fichiers virtuel persistant."
+          data-project-key="p1"
           data-github="https://linux-web-app.vercel.app"
         >
           <div>
-            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Vanilla JS / OS Web</span>
-            <h3 class="text-lg font-bold">Web-Linux : OS dans le navigateur</h3>
-            <p class="mt-2 text-sm theme-muted leading-relaxed">
-              Environnement Linux (édition Ubuntu) exécuté à 100 % côté client : bureau, 7 apps, fenêtres déplaçables et terminal <code class="font-mono-code text-xs">lwsh</code>.
+            <span data-i18n="p1_badge" class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Vanilla JS / Web OS</span>
+            <h3 data-i18n="p1_title" class="text-lg font-bold">Web-Linux: OS in the browser</h3>
+            <p data-i18n="p1_desc" class="mt-2 text-sm theme-muted leading-relaxed">
+              Ubuntu-inspired Linux environment running 100% client-side: desktop, 7 apps, draggable windows, and lwsh terminal.
             </p>
-            <p class="mt-3 font-mono-code text-xs theme-muted">
+            <p data-i18n="p1_stack" class="mt-3 font-mono-code text-xs theme-muted">
               HTML5 · CSS3 · Vanilla JS
             </p>
           </div>
           <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
-            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
-              Détails
+            <button type="button" data-i18n="btn_details" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Details
             </button>
-            <a href="https://linux-web-app.vercel.app" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
-              Démo live →
+            <a href="https://linux-web-app.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="btn_live_demo" class="text-xs font-semibold underline underline-offset-4">
+              Live demo →
             </a>
           </div>
         </article>
@@ -286,27 +318,25 @@
         <article
           class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
           data-categorie="python"
-          data-titre="BiblioIIT : Gestion de bibliothèque"
-          data-stack="Python 3 · SQLite · unittest · Git"
-          data-details="Application console modulaire découpée en 5 modules (regles.py, modeles.py, depot_sqlite.py, service.py, console.py) avec gestion des emprunts, retours, calcul automatique des retards et 8 tests unitaires."
+          data-project-key="p2"
           data-github="https://github.com/karimgamin2000-beep/biblio-iit"
         >
           <div>
-            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Python / SQLite</span>
-            <h3 class="text-lg font-bold">BiblioIIT : Bibliothèque console</h3>
-            <p class="mt-2 text-sm theme-muted leading-relaxed">
-              Application console modulaire en Python avec persistance SQLite, gestion des emprunts, retours et détection des retards.
+            <span data-i18n="p2_badge" class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Python / SQLite</span>
+            <h3 data-i18n="p2_title" class="text-lg font-bold">BiblioIIT: Console Library</h3>
+            <p data-i18n="p2_desc" class="mt-2 text-sm theme-muted leading-relaxed">
+              Modular Python console application with SQLite persistence, loan management, returns, and overdue detection.
             </p>
-            <p class="mt-3 font-mono-code text-xs theme-muted">
+            <p data-i18n="p2_stack" class="mt-3 font-mono-code text-xs theme-muted">
               Python 3 · SQLite · unittest
             </p>
           </div>
           <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
-            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
-              Détails
+            <button type="button" data-i18n="btn_details" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Details
             </button>
-            <a href="https://github.com/karimgamin2000-beep/biblio-iit" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
-              Code GitHub →
+            <a href="https://github.com/karimgamin2000-beep/biblio-iit" target="_blank" rel="noopener noreferrer" data-i18n="btn_github_code" class="text-xs font-semibold underline underline-offset-4">
+              GitHub Code →
             </a>
           </div>
         </article>
@@ -315,27 +345,25 @@
         <article
           class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
           data-categorie="python"
-          data-titre="SondagesIIT : Site de votes Django"
-          data-stack="Python · Django 6.1 · SQLite · MVT"
-          data-details="Site web public suivant le modèle MVT de Django : consultation des sondages publiés, vote sécurisé avec protection CSRF et mise à jour atomique F('votes') + 1, interface d'administration et suite de 8 tests automatisés."
+          data-project-key="p3"
           data-github="https://github.com/karimgamin2000-beep"
         >
           <div>
-            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Django 6.1 / MVT</span>
-            <h3 class="text-lg font-bold">SondagesIIT (Django Polls)</h3>
-            <p class="mt-2 text-sm theme-muted leading-relaxed">
-              Application web publique permettant de consulter des sondages, voter en ligne et suivre les résultats avec administration Django.
+            <span data-i18n="p3_badge" class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">Django 6.1 / MVT</span>
+            <h3 data-i18n="p3_title" class="text-lg font-bold">SondagesIIT (Django Polls)</h3>
+            <p data-i18n="p3_desc" class="mt-2 text-sm theme-muted leading-relaxed">
+              Public web app to browse polls, vote online, and track live results with Django Admin.
             </p>
-            <p class="mt-3 font-mono-code text-xs theme-muted">
+            <p data-i18n="p3_stack" class="mt-3 font-mono-code text-xs theme-muted">
               Django · ORM · Admin · Tests
             </p>
           </div>
           <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
-            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
-              Détails
+            <button type="button" data-i18n="btn_details" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Details
             </button>
-            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
-              Code GitHub →
+            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" data-i18n="btn_github_code" class="text-xs font-semibold underline underline-offset-4">
+              GitHub Code →
             </a>
           </div>
         </article>
@@ -344,27 +372,25 @@
         <article
           class="projet rounded-xl border theme-card flex flex-col justify-between transition-colors"
           data-categorie="web"
-          data-titre="Portfolio Personnel Minimaliste"
-          data-stack="HTML5 · Tailwind CSS · jQuery · GitHub Pages"
-          data-details="Site vitrine monopage conçu en approche mobile-first (lisible dès 360 px sans défilement horizontal), avec thème clair/sombre, filtrage dynamique des projets, modale interactive en jQuery et CV PDF téléchargeable."
-          data-github="https://github.com/karimgamin2000-beep"
+          data-project-key="p4"
+          data-github="https://github.com/karimgamin2000-beep/portfolio-me"
         >
           <div>
-            <span class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">HTML5 / Tailwind / jQuery</span>
-            <h3 class="text-lg font-bold">Portfolio Monopage</h3>
-            <p class="mt-2 text-sm theme-muted leading-relaxed">
-              Interface minimaliste (mode clair/sombre) et responsive avec filtrage jQuery, modale de détails et CV téléchargeable.
+            <span data-i18n="p4_badge" class="inline-block font-mono-code text-[11px] px-2 py-0.5 rounded border theme-border theme-muted mb-3">HTML5 / Tailwind / jQuery</span>
+            <h3 data-i18n="p4_title" class="text-lg font-bold">One-Page Portfolio</h3>
+            <p data-i18n="p4_desc" class="mt-2 text-sm theme-muted leading-relaxed">
+              Minimalist interface (light/dark mode, EN/FR) with jQuery filtering, detail modal, and downloadable PDF CV.
             </p>
-            <p class="mt-3 font-mono-code text-xs theme-muted">
+            <p data-i18n="p4_stack" class="mt-3 font-mono-code text-xs theme-muted">
               HTML5 · Tailwind · jQuery
             </p>
           </div>
           <div class="mt-5 pt-3.5 border-t theme-border flex items-center justify-between gap-3">
-            <button type="button" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
-              Détails
+            <button type="button" data-i18n="btn_details" class="btn-details text-xs font-semibold underline underline-offset-4 cursor-pointer">
+              Details
             </button>
-            <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4">
-              Code GitHub →
+            <a href="https://github.com/karimgamin2000-beep/portfolio-me" target="_blank" rel="noopener noreferrer" data-i18n="btn_github_code" class="text-xs font-semibold underline underline-offset-4">
+              GitHub Code →
             </a>
           </div>
         </article>
@@ -378,30 +404,30 @@
       <section id="cv" class="rounded-xl border theme-card">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div>
-            <h2 class="text-2xl font-bold">Parcours &amp; Stack</h2>
-            <p class="text-xs theme-muted mt-1">Computer Science, Ingénierie IA &amp; Web</p>
+            <h2 data-i18n="cv_title" class="text-2xl font-bold">Background &amp; Stack</h2>
+            <p data-i18n="cv_sub" class="text-xs theme-muted mt-1">Computer Science, AI Engineering &amp; Web</p>
           </div>
           <div class="flex flex-wrap gap-2">
-            <a href="cv.html" class="px-3.5 py-2 rounded-lg border theme-border text-xs font-semibold hover:opacity-80 transition-opacity">
-              Voir le CV
+            <a href="cv.html" data-i18n="cv_view" class="px-3.5 py-2 rounded-lg border theme-border text-xs font-semibold hover:opacity-80 transition-opacity">
+              View CV
             </a>
-            <a href="assets/cv-karim.pdf" download="CV-KONATE-ABDOUL-KARIM.pdf" data-download-cv class="px-3.5 py-2 rounded-lg text-xs font-semibold theme-pill-cta hover:opacity-90 transition-opacity">
-              Télécharger PDF
+            <a href="assets/cv-karim.pdf" download="CV-KONATE-ABDOUL-KARIM.pdf" data-download-cv data-i18n="cv_download" class="px-3.5 py-2 rounded-lg text-xs font-semibold theme-pill-cta hover:opacity-90 transition-opacity">
+              Download PDF
             </a>
           </div>
         </div>
 
         <div class="space-y-5 text-sm">
           <div>
-            <h3 class="text-xs font-bold uppercase tracking-wider theme-muted mb-1.5">Formation</h3>
-            <p class="font-semibold">Licence 2 Computer Science · IIT (Grand-Bassam, Côte d'Ivoire)</p>
-            <p class="theme-muted mt-1 leading-relaxed text-xs sm:text-sm">
-              Cursus bilingue FR/EN : Algorithmique avancée, Bases de données II, Algèbre &amp; Analyse III, Réseaux &amp; Télécoms, Robotique &amp; IoT.
+            <h3 data-i18n="cv_edu_heading" class="text-xs font-bold uppercase tracking-wider theme-muted mb-1.5">Education</h3>
+            <p data-i18n="cv_edu_title" class="font-semibold">B.Sc. Year 2 Computer Science · IIT (Grand-Bassam, Côte d'Ivoire)</p>
+            <p data-i18n="cv_edu_desc" class="theme-muted mt-1 leading-relaxed text-xs sm:text-sm">
+              Bilingual FR/EN track: Advanced Algorithms, Databases II, Algebra &amp; Analysis III, Networks &amp; Telecoms, Robotics &amp; IoT.
             </p>
           </div>
 
           <div>
-            <h3 class="text-xs font-bold uppercase tracking-wider theme-muted mb-2">Stack technique</h3>
+            <h3 data-i18n="cv_stack_heading" class="text-xs font-bold uppercase tracking-wider theme-muted mb-2">Tech Stack</h3>
             <div class="flex flex-wrap gap-1.5">
               <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Python</span>
               <span class="px-2.5 py-1 rounded-md border theme-border text-xs font-medium">Django</span>
@@ -416,10 +442,10 @@
           </div>
 
           <div>
-            <h3 class="text-xs font-bold uppercase tracking-wider theme-muted mb-2">Expériences</h3>
+            <h3 data-i18n="cv_exp_heading" class="text-xs font-bold uppercase tracking-wider theme-muted mb-2">Experience</h3>
             <ul class="space-y-1.5 theme-muted list-disc list-inside text-xs sm:text-sm">
-              <li>Conception d'automatisations IA et d'outils web orientés produit.</li>
-              <li>Développement en équipe sur GitHub.</li>
+              <li data-i18n="cv_exp_1">Designing AI automations and product-oriented web tools.</li>
+              <li data-i18n="cv_exp_2">Team development on GitHub.</li>
             </ul>
           </div>
         </div>
@@ -427,26 +453,26 @@
 
       <!-- Section #contact -->
       <section id="contact" class="rounded-xl border theme-card">
-        <h2 class="text-2xl font-bold mb-1">Me contacter</h2>
-        <p class="text-sm theme-muted mb-5">
-          Stage, alternance ou projet technique : discutons-en directement.
+        <h2 data-i18n="contact_title" class="text-2xl font-bold mb-1">Contact me</h2>
+        <p data-i18n="contact_sub" class="text-sm theme-muted mb-5">
+          Internship, apprenticeship, or technical project: let's talk directly.
         </p>
 
         <form id="contact-form" action="https://formsubmit.co/karimgamin2000@gmail.com" method="POST" class="space-y-3.5" novalidate>
           <div>
-            <label for="nom" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Nom complet</label>
-            <input type="text" id="nom" name="name" required placeholder="Votre nom" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);">
+            <label for="nom" data-i18n="contact_name_label" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Full name</label>
+            <input type="text" id="nom" name="name" required placeholder="Your name" data-i18n-placeholder="contact_name_ph" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);">
           </div>
           <div>
-            <label for="email" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Adresse e-mail</label>
-            <input type="email" id="email" name="email" required placeholder="vous@exemple.com" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);">
+            <label for="email" data-i18n="contact_email_label" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Email address</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" data-i18n-placeholder="contact_email_ph" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);">
           </div>
           <div>
-            <label for="message" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Message</label>
-            <textarea id="message" name="message" rows="3" required placeholder="Votre message..." class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);"></textarea>
+            <label for="message" data-i18n="contact_msg_label" class="block text-xs font-semibold uppercase tracking-wider theme-muted mb-1">Message</label>
+            <textarea id="message" name="message" rows="3" required placeholder="Your message..." data-i18n-placeholder="contact_msg_ph" class="w-full px-3.5 py-2 rounded-lg border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400" style="background-color: var(--bg); color: var(--text);"></textarea>
           </div>
-          <button id="contact-submit" type="submit" class="w-full py-2.5 px-4 rounded-lg text-sm font-semibold theme-pill-cta hover:opacity-90 transition-opacity cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
-            Envoyer le message
+          <button id="contact-submit" type="submit" data-i18n="contact_submit" class="w-full py-2.5 px-4 rounded-lg text-sm font-semibold theme-pill-cta hover:opacity-90 transition-opacity cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+            Send message
           </button>
           <p id="form-feedback" class="hidden text-sm font-medium rounded-lg p-3" role="status"></p>
         </form>
@@ -490,7 +516,7 @@
     <div class="rounded-2xl max-w-lg w-full shadow-2xl border theme-card">
       <div class="flex items-start justify-between gap-4">
         <h3 id="modale-titre" class="text-xl font-bold"></h3>
-        <button type="button" id="modale-fermer" aria-label="Fermer la fenêtre" class="p-1.5 rounded-lg theme-muted hover:text-[var(--text)] cursor-pointer">
+        <button type="button" id="modale-fermer" aria-label="Close modal" class="p-1.5 rounded-lg theme-muted hover:text-[var(--text)] cursor-pointer">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
@@ -499,18 +525,18 @@
       <p id="modale-stack" class="mt-2 font-mono-code text-xs font-semibold theme-muted"></p>
       <p id="modale-details" class="mt-4 text-sm theme-muted leading-relaxed"></p>
       <div class="mt-6 flex justify-end gap-3">
-        <button type="button" id="modale-fermer-btn" class="px-4 py-2 rounded-lg border theme-border text-sm font-medium cursor-pointer">
-          Fermer
+        <button type="button" id="modale-fermer-btn" data-i18n="modal_close" class="px-4 py-2 rounded-lg border theme-border text-sm font-medium cursor-pointer">
+          Close
         </button>
-        <a id="modale-github" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-sm font-semibold theme-pill-cta hover:opacity-90">
-          Ouvrir le lien
+        <a id="modale-github" href="#" target="_blank" rel="noopener noreferrer" data-i18n="modal_open" class="px-4 py-2 rounded-lg text-sm font-semibold theme-pill-cta hover:opacity-90">
+          Open link
         </a>
       </div>
     </div>
   </div>
 
   <!-- Bouton Retour en haut -->
-  <button id="btn-haut" type="button" aria-label="Retour en haut de la page" class="hidden fixed bottom-5 right-5 z-40 w-10 h-10 rounded-full border theme-surface shadow-lg cursor-pointer flex items-center justify-center">
+  <button id="btn-haut" type="button" aria-label="Back to top" class="hidden fixed bottom-5 right-5 z-40 w-10 h-10 rounded-full border theme-surface shadow-lg cursor-pointer flex items-center justify-center">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
     </svg>
@@ -524,11 +550,12 @@
         <a href="https://github.com/karimgamin2000-beep" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text)] transition-colors">GitHub</a>
         <a href="https://www.linkedin.com/in/abdoul-karim-konate-15635b3b0" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text)] transition-colors">LinkedIn</a>
         <a href="https://x.com/Karimpromax1" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text)] transition-colors">X</a>
-        <a href="mailto:karimgamin2000@gmail.com" class="hover:text-[var(--text)] transition-colors">E-mail</a>
+        <a href="mailto:karimgamin2000@gmail.com" data-i18n="social_email" class="hover:text-[var(--text)] transition-colors">Email</a>
       </div>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/cv-download.js"></script>
   <script src="js/app.js"></script>
 </body>

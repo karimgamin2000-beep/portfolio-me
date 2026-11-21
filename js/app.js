@@ -1,4 +1,61 @@
 $(document).ready(function () {
+  let currentLang = localStorage.getItem("lang") || "en";
+  let visibleProjectCount = $(".projet").length;
+
+  function t(key) {
+    return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key;
+  }
+
+  function updateProjectCounter() {
+    const template = visibleProjectCount > 1 ? t("projects_count_many") : t("projects_count_one");
+    $("#projets-compteur").text(template.replace("{n}", String(visibleProjectCount)));
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang === "fr" ? "fr" : "en";
+    localStorage.setItem("lang", currentLang);
+    $("html").attr("lang", currentLang);
+    document.title = t("page_title");
+    $("#lang-label").text(currentLang.toUpperCase());
+
+    $("[data-i18n]").each(function () {
+      const key = $(this).data("i18n");
+      $(this).text(t(key));
+    });
+
+    $("[data-i18n-placeholder]").each(function () {
+      const key = $(this).data("i18n-placeholder");
+      $(this).attr("placeholder", t(key));
+    });
+
+    updateProjectCounter();
+  }
+
+  // Initialisation de la langue (EN par défaut)
+  applyLanguage(currentLang);
+
+  // Sélecteur de langue dropdown
+  $("#lang-toggle").on("click", function (e) {
+    e.stopPropagation();
+    const isExpanded = $(this).attr("aria-expanded") === "true";
+    $("#lang-menu").toggleClass("hidden");
+    $(this).attr("aria-expanded", String(!isExpanded));
+  });
+
+  $(".lang-option").on("click", function () {
+    const selectedLang = $(this).data("set-lang");
+    applyLanguage(selectedLang);
+    $("#lang-menu").addClass("hidden");
+    $("#lang-toggle").attr("aria-expanded", "false");
+  });
+
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("#lang-switcher").length) {
+      $("#lang-menu").addClass("hidden");
+      $("#lang-toggle").attr("aria-expanded", "false");
+    }
+  });
+
   // 0. Bascule mode clair / sombre (persisté dans localStorage)
   function syncThemeIcons() {
     const isLight = $("html").hasClass("light");
@@ -54,16 +111,17 @@ $(document).ready(function () {
       }
     });
 
-    const label = visibles > 1 ? visibles + " projets affichés" : visibles + " projet affiché";
-    $("#projets-compteur").text(label);
+    visibleProjectCount = visibles;
+    updateProjectCounter();
   });
 
   // 3. Modale de détail de projet
   $(".btn-details").on("click", function () {
     const $carte = $(this).closest(".projet");
-    $("#modale-titre").text($carte.data("titre"));
-    $("#modale-stack").text($carte.data("stack"));
-    $("#modale-details").text($carte.data("details"));
+    const key = $carte.data("project-key");
+    $("#modale-titre").text(t(key + "_title"));
+    $("#modale-stack").text(t(key + "_stack"));
+    $("#modale-details").text(t(key + "_details"));
     $("#modale-github").attr("href", $carte.data("github"));
     $("#projet-modale").removeClass("hidden").hide().fadeIn(180);
   });
@@ -81,8 +139,12 @@ $(document).ready(function () {
     }
   });
   $(document).on("keydown", function (e) {
-    if (e.key === "Escape" && !$("#projet-modale").hasClass("hidden")) {
-      fermerModale();
+    if (e.key === "Escape") {
+      if (!$("#projet-modale").hasClass("hidden")) {
+        fermerModale();
+      }
+      $("#lang-menu").addClass("hidden");
+      $("#lang-toggle").attr("aria-expanded", "false");
     }
   });
 
@@ -117,7 +179,7 @@ $(document).ready(function () {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(email);
     }
-    $span.text("E-mail copié !");
+    $span.text(t("email_copied"));
     setTimeout(function () {
       $span.text(email);
     }, 2000);
@@ -139,7 +201,7 @@ $(document).ready(function () {
     if (!nom || !email || !message) {
       $feedback
         .addClass("bg-red-950/70 text-red-300 border border-red-800")
-        .text("Merci de remplir tous les champs avant d'envoyer.")
+        .text(t("contact_err_empty"))
         .fadeIn(200);
       return;
     }
@@ -148,12 +210,12 @@ $(document).ready(function () {
     if (!emailRegex.test(email)) {
       $feedback
         .addClass("bg-red-950/70 text-red-300 border border-red-800")
-        .text("Veuillez saisir une adresse e-mail valide.")
+        .text(t("contact_err_email"))
         .fadeIn(200);
       return;
     }
 
-    $submit.prop("disabled", true).text("Envoi en cours...");
+    $submit.prop("disabled", true).text(t("contact_sending"));
 
     fetch("https://formsubmit.co/ajax/karimgamin2000@gmail.com", {
       method: "POST",
@@ -181,34 +243,37 @@ $(document).ready(function () {
           if (msg.toLowerCase().includes("activation")) {
             $feedback
               .addClass("bg-red-950/70 text-red-300 border border-red-800")
-              .text("Formulaire en attente d'activation : ouvrez karimgamin2000@gmail.com (et les spams) et cliquez sur « Activate Form » dans l'e-mail de FormSubmit.")
+              .text(t("contact_err_activation"))
               .fadeIn(200);
             return;
           }
-          throw new Error(msg || "Erreur d'envoi");
+          throw new Error(msg || "Error");
         }
         $feedback
           .addClass("bg-emerald-950/70 text-emerald-300 border border-emerald-800")
-          .text("Merci " + nom + " ! Votre message a bien été envoyé à karimgamin2000@gmail.com.")
+          .text(t("contact_success").replace("{name}", nom))
           .fadeIn(200);
         form.reset();
       })
       .catch(function () {
         const subject = encodeURIComponent("Contact Portfolio KAK — " + nom);
-        const body = encodeURIComponent("De : " + nom + " (" + email + ")\n\n" + message);
+        const body = encodeURIComponent("From: " + nom + " (" + email + ")\n\n" + message);
         $feedback
           .addClass("bg-red-950/70 text-red-300 border border-red-800")
           .html(
-            'L\'envoi automatique a échoué. <a class="underline font-semibold" href="mailto:karimgamin2000@gmail.com?subject=' +
+            t("contact_err_fallback") +
+              ' <a class="underline font-semibold" href="mailto:karimgamin2000@gmail.com?subject=' +
               subject +
               "&body=" +
               body +
-              '">Ouvrir votre messagerie</a>.'
+              '">' +
+              t("contact_open_mail") +
+              "</a>."
           )
           .fadeIn(200);
       })
       .finally(function () {
-        $submit.prop("disabled", false).text("Envoyer le message");
+        $submit.prop("disabled", false).text(t("contact_submit"));
       });
   });
 });
