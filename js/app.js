@@ -34,24 +34,33 @@ $(document).ready(function () {
   // Initialisation de la langue (EN par défaut)
   applyLanguage(currentLang);
 
-  // Sélecteur de langue dropdown
+  // Sélecteur de langue dropdown (display explicite pour compatibilité garantie)
   $("#lang-toggle").on("click", function (e) {
+    e.preventDefault();
     e.stopPropagation();
-    const isExpanded = $(this).attr("aria-expanded") === "true";
-    $("#lang-menu").toggleClass("hidden");
-    $(this).attr("aria-expanded", String(!isExpanded));
+    const $menu = $("#lang-menu");
+    const isOpen = $menu.is(":visible");
+    if (isOpen) {
+      $menu.hide();
+      $(this).attr("aria-expanded", "false");
+    } else {
+      $menu.show();
+      $(this).attr("aria-expanded", "true");
+    }
   });
 
-  $(".lang-option").on("click", function () {
+  $(".lang-option").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
     const selectedLang = $(this).data("set-lang");
     applyLanguage(selectedLang);
-    $("#lang-menu").addClass("hidden");
+    $("#lang-menu").hide();
     $("#lang-toggle").attr("aria-expanded", "false");
   });
 
   $(document).on("click", function (e) {
     if (!$(e.target).closest("#lang-switcher").length) {
-      $("#lang-menu").addClass("hidden");
+      $("#lang-menu").hide();
       $("#lang-toggle").attr("aria-expanded", "false");
     }
   });
@@ -143,7 +152,7 @@ $(document).ready(function () {
       if (!$("#projet-modale").hasClass("hidden")) {
         fermerModale();
       }
-      $("#lang-menu").addClass("hidden");
+      $("#lang-menu").hide();
       $("#lang-toggle").attr("aria-expanded", "false");
     }
   });
