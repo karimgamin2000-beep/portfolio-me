@@ -41,15 +41,15 @@ const I18N = {
     p2_stack: "Python 3 · SQLite · unittest",
     p2_details:
       "Modular console application split into 5 modules (regles.py, modeles.py, depot_sqlite.py, service.py, console.py) with loan management, returns, automatic overdue calculation, and 8 unit tests.",
-    p3_badge: "Django 6.1 / MVT",
-    p3_title: "SondagesIIT (Django Polls)",
+    p3_badge: "HTML5 / CSS3",
+    p3_title: "Robbie Lens — Photography Portfolio",
     p3_desc:
-      "Public web app to browse polls, vote online, and track live results with Django Admin.",
-    p3_stack: "Django · ORM · Admin · Tests",
+      "Static showcase website built to consolidate my HTML5 & CSS3 foundations (OpenClassrooms course, 100% validated).",
+    p3_stack: "HTML5 · CSS3 · Vanilla JS",
     p3_details:
-      "Public web app following Django's MVT architecture: browse published polls, CSRF-protected voting with atomic F('votes') + 1 updates, admin interface, and 8 automated tests.",
+      "Static showcase website for photographer Robbie Lens (OpenClassrooms HTML5 & CSS3 final project, 100% validated): responsive layout, gallery, pricing table, and client-side contact form.",
     p4_badge: "HTML5 / Tailwind / jQuery",
-    p4_title: "One-Page Portfolio",
+    p4_title: "My One-Page AI Engineer & Developer Portfolio",
     p4_desc:
       "Minimalist interface (light/dark mode, EN/FR) with jQuery filtering, detail modal, and downloadable PDF CV.",
     p4_stack: "HTML5 · Tailwind · jQuery",
@@ -130,15 +130,15 @@ const I18N = {
     p2_stack: "Python 3 · SQLite · unittest",
     p2_details:
       "Application console modulaire découpée en 5 modules (regles.py, modeles.py, depot_sqlite.py, service.py, console.py) avec gestion des emprunts, retours, calcul automatique des retards et 8 tests unitaires.",
-    p3_badge: "Django 6.1 / MVT",
-    p3_title: "SondagesIIT (Django Polls)",
+    p3_badge: "HTML5 / CSS3",
+    p3_title: "Robbie Lens — Portfolio Photographie",
     p3_desc:
-      "Application web publique permettant de consulter des sondages, voter en ligne et suivre les résultats avec administration Django.",
-    p3_stack: "Django · ORM · Admin · Tests",
+      "Site vitrine statique réalisé pour consolider mes acquis du cours OpenClassrooms HTML5 & CSS3 (validé à 100 %).",
+    p3_stack: "HTML5 · CSS3 · Vanilla JS",
     p3_details:
-      "Site web public suivant le modèle MVT de Django : consultation des sondages publiés, vote sécurisé avec protection CSRF et mise à jour atomique F('votes') + 1, interface d'administration et suite de 8 tests automatisés.",
+      "Site vitrine statique de la photographe Robbie Lens (projet final du cours OpenClassrooms « Créez votre site web avec HTML5 et CSS3 », validé à 100 %) : mise en page responsive, galerie, grille tarifaire et formulaire de contact côté client.",
     p4_badge: "HTML5 / Tailwind / jQuery",
-    p4_title: "Portfolio Monopage",
+    p4_title: "Mon Portfolio Monopage d'Ingénieur-Développeur en IA",
     p4_desc:
       "Interface minimaliste (mode clair/sombre, EN/FR) avec filtrage jQuery, modale de détails et CV téléchargeable.",
     p4_stack: "HTML5 · Tailwind · jQuery",
