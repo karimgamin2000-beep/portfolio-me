@@ -67,4 +67,5 @@ python -m http.server 8000
 - **E-mail** : karimgamin2000@gmail.com
 - **GitHub** : [github.com/karimgamin2000-beep](https://github.com/karimgamin2000-beep)
 - **LinkedIn** : [in/abdoul-karim-konate-15635b3b0](https://www.linkedin.com/in/abdoul-karim-konate-15635b3b0)
+- **Forkfolio** : [karimgamin2000-beep.forkfolio.dev](https://karimgamin2000-beep.forkfolio.dev/)
 - **X** : [@Karimpromax1](https://x.com/Karimpromax1)
