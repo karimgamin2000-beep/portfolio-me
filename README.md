@@ -6,6 +6,22 @@ Portfolio personnel minimaliste et responsive présentant mon parcours en **Comp
 
 ---
 
+## Vidéos
+
+### Présentation complète (4K · 5 min 21 s)
+
+https://github.com/karimgamin2000-beep/portfolio-me/raw/main/assets/videos/presentation-complete.mp4
+
+> **Présentation complète** : visite guidée commentée du portfolio en 4K (`3840×2160`) avec sous-titres français, voix nettoyée et démonstration responsive mobile. — [Télécharger / Ouvrir la vidéo](assets/videos/presentation-complete.mp4)
+
+### Démo rapide (Brag · 20 s)
+
+https://github.com/karimgamin2000-beep/portfolio-me/raw/main/assets/videos/demo-brag.mp4
+
+> **Démo** : aperçu rythmé de 20 secondes présentant le site en ligne, les projets phares et la bascule instantanée EN/FR & clair/sombre. — [Télécharger / Ouvrir la démo](assets/videos/demo-brag.mp4)
+
+---
+
 ## Aperçu
 
 - **Design minimaliste & adaptatif** : thème sombre par défaut avec bascule **clair / sombre** persistée (`localStorage`), lisible dès `360 px` jusqu'aux écrans larges.
