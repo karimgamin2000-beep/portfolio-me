@@ -20,6 +20,7 @@ Portfolio personnel minimaliste et responsive présentant mon parcours en **Comp
 
 | Projet | Description | Stack | Lien |
 | --- | --- | --- | --- |
+| **A Software Factory (Fondateur)** | Studio de création de logiciels IA, systèmes d'automatisation et produits web | Systèmes IA, Web, Automatisation | [Site web](https://a-software-factory.vercel.app/) · [LinkedIn](https://www.linkedin.com/company/a-software-factory) |
 | **Web-Linux** | OS Linux dans le navigateur (bureau Ubuntu, 7 apps, terminal `lwsh`, VFS persistant) | HTML5, CSS3, Vanilla JS | [Démo live](https://linux-web-app.vercel.app) |
 | **BiblioIIT** | Application console modulaire de gestion de bibliothèque avec détection des retards | Python 3, SQLite, `unittest` | [GitHub](https://github.com/karimgamin2000-beep/biblio-iit) |
 | **Robbie Lens** | Site vitrine statique de photographie (projet final OpenClassrooms HTML5 & CSS3) | HTML5, CSS3, Vanilla JS | [GitHub](https://github.com/karimgamin2000-beep/Robbie-Lens-portfolio) |

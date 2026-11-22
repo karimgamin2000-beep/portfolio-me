@@ -27,6 +27,14 @@ const I18N = {
     btn_details: "Details",
     btn_live_demo: "Live demo →",
     btn_github_code: "GitHub Code →",
+    btn_website: "Website →",
+    p5_badge: "Founder / AI Software Studio",
+    p5_title: "A Software Factory — Founder",
+    p5_desc:
+      "Founder of A Software Factory: building AI-powered software, automation systems, and modern web products.",
+    p5_stack: "AI Systems · Web · Automation",
+    p5_details:
+      "Founder of A Software Factory (a-software-factory.vercel.app): designing and shipping AI-powered software, intelligent workflows, and custom web applications.",
     p1_badge: "Vanilla JS / Web OS",
     p1_title: "Web-Linux: OS in the browser",
     p1_desc:
@@ -116,6 +124,14 @@ const I18N = {
     btn_details: "Détails",
     btn_live_demo: "Démo live →",
     btn_github_code: "Code GitHub →",
+    btn_website: "Site web →",
+    p5_badge: "Fondateur / Studio IA",
+    p5_title: "A Software Factory — Fondateur",
+    p5_desc:
+      "Fondateur de A Software Factory : conception de logiciels propulsés par l'IA, systèmes d'automatisation et produits web.",
+    p5_stack: "Systèmes IA · Web · Automatisation",
+    p5_details:
+      "Fondateur de A Software Factory (a-software-factory.vercel.app) : conception et déploiement de logiciels IA, workflows intelligents et applications web sur mesure.",
     p1_badge: "Vanilla JS / OS Web",
     p1_title: "Web-Linux : OS dans le navigateur",
     p1_desc:
